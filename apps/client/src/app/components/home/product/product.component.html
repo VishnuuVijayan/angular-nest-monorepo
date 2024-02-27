@@ -1,0 +1,38 @@
+<p-card
+  [style]="{
+    height: '100%'
+  }"
+  header="{{ product.name }}"
+  subheader="{{ product.price }}"
+>
+  <ng-template pTemplate="header">
+    <img
+      alt="Card"
+      class="rounded-t-lg"
+      [src]="product.image ? product.image : 'assets/placeholder.svg'"
+    />
+  </ng-template>
+
+  <div>
+    <p-rating
+      [readonly]="true"
+      [(ngModel)]="product.rating"
+      [cancel]="false"
+    ></p-rating>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button
+      pButton
+      (click)="editProduct()"
+      icon="pi pi-pencil"
+      class="text-xs font-normal bg-slate-600 mr-3 text-white py-3 px-6 rounded-lg"
+    ></button>
+    <button
+      (click)="deleteProduct()"
+      pButton
+      icon="pi pi-trash"
+      class="text-xs font-normal bg-red-600 mr-3 text-white py-3 px-6 rounded-lg"
+    ></button>
+  </ng-template>
+</p-card>
