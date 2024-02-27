@@ -8,7 +8,7 @@
       class="text-xs font-normal bg-slate-600 text-white py-3 px-6 rounded-lg"
       label="Add Product"
       (click)="toggleAddPopup()"
-      icon="pi pi-plus text-xs"
+      icon="pi pi-plus"
     ></button>
   </div>
   <div class="w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 p-6">
@@ -30,7 +30,7 @@
     <!-- Add Product -->
     <angular-nest-monorepo-edit-popup
       header="Add Product"
-      [display]="displayAddPopup"
+      [(display)]="displayAddPopup"
       (confirm)="handleAddConfirm($event)"
     />
 
@@ -38,7 +38,7 @@
     <angular-nest-monorepo-edit-popup
       [product]="selectedProduct"
       header="Edit Product"
-      [display]="displayEditPopup"
+      [(display)]="displayEditPopup"
       (confirm)="handleEditConfirm($event)"
     />
   </div>

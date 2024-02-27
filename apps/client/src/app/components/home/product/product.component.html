@@ -8,7 +8,8 @@
   <ng-template pTemplate="header">
     <img
       alt="Card"
-      class="rounded-t-lg"
+      class="rounded-t-lg h-[300px] object-contain"
+      [ngClass]="{ 'bg-[#dcdcdc]': !product.image }"
       [src]="product.image ? product.image : 'assets/placeholder.svg'"
     />
   </ng-template>

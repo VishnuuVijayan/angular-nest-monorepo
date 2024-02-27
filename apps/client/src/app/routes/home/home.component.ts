@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginatorModule } from 'primeng/paginator';
 import { ButtonModule } from 'primeng/button';
@@ -20,7 +20,7 @@ import { Product, Products } from '../../types/general';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, DoCheck {
   constructor(private productsService: ProductsService) {}
 
   products: Product[] = [];
@@ -43,8 +43,13 @@ export class HomeComponent implements OnInit {
     this.displayEditPopup = true;
   };
 
+  // eslint-disable-next-line @angular-eslint/use-lifecycle-interface
+  ngDoCheck(): void {
+    console.log(this.displayAddPopup);
+  }
+
   toggleAddPopup = () => {
-    this.displayAddPopup = true;
+    this.displayAddPopup = !this.displayAddPopup;
   };
 
   toggleDeletePopup = (product: Product) => {

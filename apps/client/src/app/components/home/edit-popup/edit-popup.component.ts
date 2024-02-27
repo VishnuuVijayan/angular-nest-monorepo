@@ -16,7 +16,7 @@ import { Product } from '../../../types/general';
     RatingModule,
   ],
   templateUrl: './edit-popup.component.html',
-  styleUrl: './edit-popup.component.scss',
+  styleUrls: ['./edit-popup.component.scss'],
 })
 export class EditPopupComponent {
   @Input() display = false;
@@ -28,14 +28,18 @@ export class EditPopupComponent {
     rating: 0,
   };
 
+  @Output() displayChange = new EventEmitter<boolean>();
   @Output() confirm = new EventEmitter<Product>();
   @Output() cancel = new EventEmitter<void>();
 
   onConfirm = () => {
     this.confirm.emit(this.product);
+    this.display = false;
+    this.displayChange.emit(this.display);
   };
 
   onCancel = () => {
     this.display = false;
+    this.displayChange.emit(this.display);
   };
 }
