@@ -1,4 +1,4 @@
-# AngularNestMonorepo
+# Angular Nest Monorepo
 
 <a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
 
@@ -19,6 +19,12 @@ Run `npx nx serve server` to start the development server. Happy coding!
 Run `npx nx build server` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.
 
 ## Running tasks
+
+Shorthand to run both applications concurrently:
+
+```
+npm run dev
+```
 
 To execute tasks with Nx use the following syntax:
 
